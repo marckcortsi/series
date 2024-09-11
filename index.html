@@ -1,91 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Productos</title>
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            height: 100vh; 
-            margin: 0; 
-            background-color: #f4f7f6;
-        }
-        .section { 
-            display: none; 
-            margin-top: 20px; 
-            text-align: center; 
-        }
-        .visible { 
-            display: block; 
-        }
-        button { 
-            margin: 10px; 
-            padding: 10px 20px; 
-            border: none; 
-            border-radius: 5px; 
-            background-color: #4CAF50; 
-            color: white; 
-            font-size: 16px; 
-            cursor: pointer; 
-            transition: background-color 0.3s; 
-        }
-        button:hover { 
-            background-color: #45a049; 
-        }
-        input[type="text"] { 
-            padding: 10px; 
-            margin: 10px; 
-            border: 1px solid #ccc; 
-            border-radius: 5px; 
-            width: calc(100% - 22px);
-            max-width: 300px; 
-        }
-        h1, h2 {
-            color: #333;
-        }
-        .counter {
-            margin-top: 10px;
-            font-size: 18px;
-            color: #555;
-        }
-    </style>
+    <title>Registro de Series</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Aplicación de Registro</h1>
-    <button id="startButton">Comenzar</button>
+    <div class="container">
+        <h1>Registro de Series</h1>
 
-    <!-- Sección para ingresar el código del producto -->
-    <div id="productSection" class="section">
-        <h2>Ingresar Código de Producto</h2>
-        <input type="text" id="productCode" placeholder="Código del producto">
-        <button id="acceptProduct">Aceptar</button>
+        <!-- Sección de inicio -->
+        <button id="startButton" class="section visible">Comenzar</button>
+
+        <!-- Sección para ingresar el código del producto -->
+        <div id="productSection" class="section">
+            <h2>Ingresar código de producto</h2>
+            <input type="text" id="productCode" placeholder="Código de producto">
+            <button id="acceptProduct">Aceptar</button>
+        </div>
+
+        <!-- Sección para registrar series -->
+        <div id="seriesSection" class="section">
+            <div id="counter">Registrando: Producto | Series: 0</div>
+            <h2>Escanear serie</h2>
+            <input type="text" id="seriesCode" placeholder="Código de serie">
+            <button id="registerSeries">Registrar Serie</button>
+            <button id="newProduct">Registrar Nuevo Producto</button>
+            <button id="finish">Finalizar</button>
+        </div>
+
+        <!-- Sección para finalizar y descargar reporte -->
+        <div id="finishSection" class="section">
+            <h2>Finalizar Pedido</h2>
+            <input type="text" id="orderNumber" placeholder="Número de pedido">
+            <button id="generateReport">Generar Reporte</button>
+        </div>
     </div>
 
-    <!-- Sección para escanear y registrar la serie del producto -->
-    <div id="seriesSection" class="section">
-        <h2>Escanear Serie</h2>
-        <div id="counter" class="counter"></div>
-        <input type="text" id="seriesCode" placeholder="Serie del producto">
-        <button id="registerSeries">Registrar</button>
-        <br>
-        <button id="newProduct">Registrar Nuevo Producto</button>
-        <button id="finish">Finalizar</button>
-    </div>
-
-    <!-- Sección para finalizar y generar el reporte -->
-    <div id="finishSection" class="section">
-        <h2>Finalizar Pedido</h2>
-        <input type="text" id="orderNumber" placeholder="Número de Pedido">
-        <button id="generateReport">Generar Reporte</button>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
