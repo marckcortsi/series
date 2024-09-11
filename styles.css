@@ -1,84 +1,119 @@
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f2f5;
 }
 
-h1 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-    font-size: 2rem;
-    animation: fadeIn 1s ease-in-out;
-}
-
-.section {
-    display: none;
-    margin-top: 20px;
+.container {
     text-align: center;
+    width: 90%;
+    max-width: 500px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Botones generales */
 button {
-    margin: 10px;
-    padding: 10px 20px;
+    background-color: #6200ea;
+    color: #fff;
     border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
     border-radius: 25px;
-    background-color: #3498db;
-    color: white;
-    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #2980b9;
-    transform: scale(1.05);
+    background-color: #3700b3;
 }
 
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Secciones visibles */
+.section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.section.visible {
+    display: block;
+    opacity: 1;
+}
+
+/* Estilos de los cuadros de texto */
 input[type="text"] {
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #ddd;
-    border-radius: 25px;
     width: calc(100% - 22px);
-    max-width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
     transition: border-color 0.3s;
 }
 
 input[type="text"]:focus {
-    border-color: #3498db;
+    border-color: #6200ea;
     outline: none;
 }
 
-h2 {
-    color: #34495e;
-    margin-bottom: 15px;
-    animation: slideIn 0.7s ease-out;
-}
-
-.counter {
-    margin-top: 10px;
-    font-size: 1.2rem;
-    color: #e74c3c;
+/* Contador destacado */
+#counter {
+    font-size: 18px;
     font-weight: bold;
-    animation: bounce 0.6s infinite alternate;
+    margin-bottom: 20px;
+    color: #6200ea;
+    animation: pulse 1s infinite;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* Animación de pulso para el contador */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
-@keyframes slideIn {
-    from { transform: translateY(-20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+/* Títulos */
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-@keyframes bounce {
-    from { transform: translateY(0); }
-    to { transform: translateY(-10px); }
+/* Estilos para los mensajes de error */
+.alert {
+    color: red;
+    margin-top: 10px;
+    display: none;
+}
+
+/* Estilo para centrar y ajustar los formularios */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
 }
